@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import {ContentHeader} from "../../layout/components/content-header/content-header.component";
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core'
 export class HomeComponent implements OnInit {
   constructor() {}
 
-  public contentHeader: object
+  public contentHeader: ContentHeader;
 
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
@@ -27,10 +28,6 @@ export class HomeComponent implements OnInit {
             name: 'Home',
             isLink: true,
             link: '/'
-          },
-          {
-            name: 'Sample',
-            isLink: false
           }
         ]
       }

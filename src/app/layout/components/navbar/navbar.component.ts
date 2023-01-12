@@ -13,7 +13,7 @@ import { CoreMediaService } from '@core/services/media.service';
 
 import { User } from 'app/auth/models';
 
-import { coreConfig } from 'app/app-config';
+//import { coreConfig } from 'app/app-config';
 import { Router } from '@angular/router';
 
 @Component({
@@ -166,7 +166,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
    */
   logout() {
     this._authenticationService.logout();
-    this._router.navigate(['/pages/authentication/login-v2']);
+    this._router.navigate(['/pages/authentication/login']);
   }
 
   // Lifecycle Hooks
@@ -201,11 +201,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
       // On every media(screen) change
       this._coreMediaService.onMediaUpdate.pipe(takeUntil(this._unsubscribeAll)).subscribe(() => {
         const isFixedTop = this._mediaObserver.isActive('bs-gt-xl');
-        if (isFixedTop) {
-          this.isFixed = false;
-        } else {
-          this.isFixed = true;
-        }
+          this.isFixed = !isFixedTop;
       });
     }
 
