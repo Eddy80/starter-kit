@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import {ContentHeader} from "../../../layout/components/content-header/content-header.component";
 import {CoreTranslationService} from "../../../../@core/services/translation.service";
 import {locale as en} from "../i18n/en";
 import {locale as fr} from "../i18n/fr";
 import {locale as de} from "../i18n/de";
 import {locale as pt} from "../i18n/pt";
-import {ContentHeader} from "../../../layout/components/content-header/content-header.component";
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  selector: 'app-earning',
+  templateUrl: './earning.component.html',
+  styleUrls: ['./earning.component.scss']
 })
-export class UserComponent implements OnInit {
-
-  public contentHeader: ContentHeader;
+export class EarningComponent implements OnInit {
 
   /**
    *
@@ -26,12 +24,18 @@ export class UserComponent implements OnInit {
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
 
+
+  public contentHeader: ContentHeader;
+
+  // Lifecycle Hooks
+  // -----------------------------------------------------------------------------------------------------
+
   /**
    * On init
    */
   ngOnInit() {
     this.contentHeader = {
-      headerTitle: 'Users',
+      headerTitle: 'Earnings',
       actionButton: true,
       breadcrumb: {
         type: '',
@@ -42,12 +46,11 @@ export class UserComponent implements OnInit {
             link: '/'
           },
           {
-            name: 'Users',
+            name: 'Earnings',
             isLink: false
           }
         ]
       }
     }
   }
-
 }
