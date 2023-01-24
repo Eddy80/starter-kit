@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from 'environments/environment';
 import { User, Role } from 'app/auth/models';
 import { ToastrService } from 'ngx-toastr';
+import {AuthLoginInfo} from "../models/login-info";
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -14,6 +15,10 @@ export class AuthenticationService {
 
   //private
   private currentUserSubject: BehaviorSubject<User>;
+
+  private httpOptions = {
+    headers: new HttpHeaders({'Content-type':'application/json'})
+  };
 
   /**
    *
@@ -51,13 +56,16 @@ export class AuthenticationService {
    * @param password
    * @returns user
    */
-  login(email: string, password: string) {
+  login(credentials: AuthLoginInfo) {
     return this._http
-      .post<any>(`${environment.apiUrl}/users/authenticate`, { email, password })
+      .post<any>(`${environment.apiUrl}/api/authenticate`, credentials, this.httpOptions)
+      //.post<any>(`${environment.apiUrl}/users/authenticate`, { email, password })
       .pipe(
         map(user => {
+          //console.log('Got response from API');
           // login successful if there's a jwt token in the response
           if (user && user.token) {
+           // console.log('Auth successfull');
             // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem('currentUser', JSON.stringify(user));
 
@@ -66,7 +74,7 @@ export class AuthenticationService {
               this._toastrService.success(
                 'You have successfully logged in as an ' +
                   user.role +
-                  ' user to Vuexy. Now you can start to explore. Enjoy! 🎉',
+                  ' user to BrowserAds. Now you can start to explore. Enjoy! 🎉',
                 '👋 Welcome, ' + user.firstName + '!',
                 { toastClass: 'toast ngx-toastr', closeButton: true }
               );

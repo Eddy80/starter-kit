@@ -1,10 +1,13 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { takeUntil } from 'rxjs/operators';
+import {first, takeUntil} from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { CoreConfigService } from '@core/services/config.service';
+import {AuthenticationService} from "../../../../auth/service";
+import {AuthLoginInfo} from "../../../../auth/models/login-info";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-auth-login-v2',
@@ -25,6 +28,8 @@ export class AuthLoginV2Component implements OnInit {
   // Private
   private _unsubscribeAll: Subject<any>;
 
+  private credentials: AuthLoginInfo = {email:"admin@demo.com", passWord:"password"};
+
   /**
    * Constructor
    *
@@ -34,8 +39,15 @@ export class AuthLoginV2Component implements OnInit {
     private _coreConfigService: CoreConfigService,
     private _formBuilder: UntypedFormBuilder,
     private _route: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private _authenticationService: AuthenticationService
   ) {
+
+    // redirect to home if already logged in
+    if (this._authenticationService.currentUserValue) {
+      this._router.navigate(['/']);
+    }
+
     this._unsubscribeAll = new Subject();
 
     // Configure the layout
@@ -58,6 +70,7 @@ export class AuthLoginV2Component implements OnInit {
 
   // convenience getter for easy access to form fields
   get f() {
+    //console.log('Password sent :'+this.loginForm.controls.password.value); // loga yazmadi
     return this.loginForm.controls;
   }
 
@@ -71,17 +84,37 @@ export class AuthLoginV2Component implements OnInit {
   onSubmit() {
     this.submitted = true;
 
+
+
     // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     }
 
+    this.credentials.email = this.f.email.value;
+    this.credentials.passWord = this.f.password.value;
+
     // Login
     this.loading = true;
+    this._authenticationService
+        .login(this.credentials)
+        .pipe(first())
+        .subscribe(
+            data => {
+                //console.log(data);
+                //console.log('error'+this.error)
+                this._router.navigate([this.returnUrl]);
+            },
+            error => {
+              //console.log(error.error);
+              this.error = error.error;
+              this.loading = false;
+            }
+        );
 
     // redirect to home page
     setTimeout(() => {
-      this._router.navigate(['/']);
+     // this._router.navigate(['/']);
     }, 100);
   }
 

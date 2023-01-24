@@ -26,8 +26,8 @@ const users: User[] = [
     id: 1,
     email: 'admin@demo.com',
     password: 'admin',
-    firstName: 'John',
-    lastName: 'Doe',
+    firstName: 'Rasim',
+    lastName: 'Masimov',
     avatar: 'avatar-s-11.jpg',
     role: Role.Admin
   },
@@ -35,8 +35,8 @@ const users: User[] = [
     id: 2,
     email: 'client@demo.com',
     password: 'client',
-    firstName: 'Nataly',
-    lastName: 'Doe',
+    firstName: 'Elshad',
+    lastName: 'Azizov',
     avatar: 'avatar-s-2.jpg',
     role: Role.Client
   },
@@ -44,8 +44,8 @@ const users: User[] = [
     id: 3,
     email: 'user@demo.com',
     password: 'user',
-    firstName: 'Rose',
-    lastName: 'Doe',
+    firstName: 'Qadir',
+    lastName: 'Aziz',
     avatar: 'avatar-s-3.jpg',
     role: Role.User
   }

@@ -4,6 +4,8 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { CoreConfigService } from '@core/services/config.service';
+import {User} from "../../auth/models";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'horizontal-layout',
@@ -38,6 +40,7 @@ export class HorizontalLayoutComponent implements OnInit, OnDestroy {
     this._coreConfigService.config.pipe(takeUntil(this._unsubscribeAll)).subscribe(config => {
       this.coreConfig = config;
     });
+
   }
 
   /**
