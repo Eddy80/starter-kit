@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   hmr: false,
-  apiUrl: 'http://localhost:4003'
+  apiUrl: 'http://65.108.55.157:8080/BaRestApi'
+  //apiUrl: 'http://localhost:4003'
   //apiUrl: 'http://localhost:4000'
 };
 

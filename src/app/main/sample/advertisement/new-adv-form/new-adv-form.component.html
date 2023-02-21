@@ -1,0 +1,362 @@
+<div class="content-wrapper container-xxl p-0">
+    <div class="content-body">
+        <app-content-header [contentHeader]="contentHeader"></app-content-header>
+
+        <!-- Contextual classes -->
+        <div class="row" id="table-contextual">
+            <div class="col-12">
+                <div class="card">
+<!--                    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" validate  >-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="name">Name</label>-->
+<!--                            <input type="text" class="form-control" name="email"-->
+<!--                                   id="name" [(ngModel)]="form.name"-->
+<!--                                   #name="ngModel" required=true/>-->
+<!--                            <div *ngIf="f.submitted && name.invalid">-->
+<!--                                <div *ngIf="name.errors?.['required']" class="alert alert-danger">Name is required</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="gender">Gender</label>-->
+<!--                            <select  name="gender" id="gender" class="form-control" [(ngModel)]="selectedValueGender"-->
+<!--                                     #gender="ngModel" (change)="selectOptionGender(this.selectedValueGender)">-->
+<!--                                <option *ngFor="let gender of genders" [value]="gender.id">{{gender.name}}</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="category">Category</label>-->
+<!--                            <select  name="category" id="category" class="form-control" [(ngModel)]="selectedValue"-->
+<!--                                     #category="ngModel" (change)="selectOption(this.selectedValue)">-->
+<!--                                <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="categorysub">Sub Category</label>-->
+<!--                            <select  name="categorysub" id="categorysub" class="form-control" [(ngModel)]="selectedValue2"-->
+<!--                                     #categorysub="ngModel" (change)="selectOption2(this.selectedValue2)">-->
+<!--                                <option *ngFor="let s of subcategories" [value]="s.id">{{s.name}}</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="country">Country</label>-->
+<!--                            <select  name="country" id="country" class="form-control" [(ngModel)]="selectedValueCountry"-->
+<!--                                     #country="ngModel" (change)="selectOptionCountry(this.selectedValue2)">-->
+<!--                                <option *ngFor="let country of countries" [value]="country.id">{{country.name}}</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="city">City</label>-->
+<!--                            <select  name="city" id="city" class="form-control" [(ngModel)]="selectedValueCity"-->
+<!--                                     #city="ngModel" (change)="selectOptionCity(this.selectedValue2)">-->
+<!--                                <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="district">District</label>-->
+<!--                            <select  name="district" id="district" class="form-control" [(ngModel)]="selectedValueDistrict"-->
+<!--                                     #district="ngModel" (change)="selectOptionDistrict(this.selectedValue2)">-->
+<!--                                <option *ngFor="let district of districts" [value]="district.id">{{district.name}}</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="showstartfrom">Start To Show From</label>-->
+<!--                            <input type="text" class="form-control" name="showstartfrom"-->
+<!--                                   id="showstartfrom" [(ngModel)]="form.showstartfrom"-->
+<!--                                   #showstartfrom="ngModel" required=true/>-->
+<!--                            <div *ngIf="f.submitted && showstartfrom.invalid">-->
+<!--                                <div *ngIf="showstartfrom.errors?.['required']" class="alert alert-danger">Start To Show From is required</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="showstartto">Start To Show To</label>-->
+<!--                            <input type="text" class="form-control" name="showstartto"-->
+<!--                                   id="showstartto" [(ngModel)]="form.showstartto"-->
+<!--                                   #showstartto="ngModel" required=true/>-->
+<!--                            <div *ngIf="f.submitted && showstartto.invalid">-->
+<!--                                <div *ngIf="showstartto.errors?.['required']" class="alert alert-danger">Start To Show To is required</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="duration">Duration in seconds</label>-->
+<!--                            <input type="text" class="form-control" name="duration"-->
+<!--                                   id="duration" [(ngModel)]="form.duration"-->
+<!--                                   #duration="ngModel" required=true/>-->
+<!--                            <div *ngIf="f.submitted && duration.invalid">-->
+<!--                                <div *ngIf="duration.errors?.['required']" class="alert alert-danger">Duration is required</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="dailylimit">Daily Limit</label>-->
+<!--                            <input type="text" class="form-control" name="dailylimit"-->
+<!--                                   id="dailylimit" [(ngModel)]="form.dailylimit"-->
+<!--                                   #dailylimit="ngModel" required=true/>-->
+<!--                            <div *ngIf="f.submitted && dailylimit.invalid">-->
+<!--                                <div *ngIf="dailylimit.errors?.['required']" class="alert alert-danger">Daily limit is required</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="weeklylimit">Weekly Limit</label>-->
+<!--                            <input type="text" class="form-control" name="weeklylimit"-->
+<!--                                   id="weeklylimit" [(ngModel)]="form.weeklylimit"-->
+<!--                                   #weeklylimit="ngModel" required=true/>-->
+<!--                            <div *ngIf="f.submitted && weeklylimit.invalid">-->
+<!--                                <div *ngIf="weeklylimit.errors?.['required']" class="alert alert-danger">Weekly limit is required</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="monthlylimit">Monthly Limit</label>-->
+<!--                            <input type="text" class="form-control" name="monthlylimit"-->
+<!--                                   id="monthlylimit" [(ngModel)]="form.monthlylimit"-->
+<!--                                   #monthlylimit="ngModel" required=true/>-->
+<!--                            <div *ngIf="f.submitted && monthlylimit.invalid">-->
+<!--                                <div *ngIf="monthlylimit.errors?.['required']" class="alert alert-danger">Monthly limit is required</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="files">Choose File</label><br />-->
+<!--                                <input type="file"  id="files" name="files" multiple="multiple" (change)="uploadFiles({event : $event})" #fileUpload>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <button type="button" (click)="RequestUpload()" class="btn btn-primary">Add</button>-->
+<!--                        </div>-->
+<!--                    </form>-->
+
+                    <section id="multiple-column-form">
+                        <div class="row match-height">
+                            <div class="col-12">
+                                    <div class="card-body">
+                                        <form class="form" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" validate>
+                                            <div class="row">
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="name">Name</label>
+                                                            <input  type="text"
+                                                                    class="form-control"
+                                                                    name="name"
+                                                                    id="name"
+                                                                    placeholder="Name"
+                                                                    [(ngModel)]="form.name"
+                                                                    #name="ngModel"
+                                                                    required=true
+                                                            />
+                                                            <div *ngIf="f.submitted && name.invalid">
+                                                                <div *ngIf="name.errors?.['required']"
+                                                                     class="alert alert-danger">
+                                                                         Name is required
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="gender">Gender</label>
+                                                        <select name="gender"
+                                                                id="gender"
+                                                                class="form-control"
+                                                                [(ngModel)]="selectedValueGender"
+                                                                #gender="ngModel"
+                                                                (change)="selectOptionGender(this.selectedValueGender)">
+                                                            <option *ngFor="let gender of genders" [value]="gender.id">{{gender.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="category">Category</label>
+                                                        <select  name="category"
+                                                                 id="category"
+                                                                 class="form-control"
+                                                                 [(ngModel)]="selectedValue"
+                                                                 #category="ngModel"
+                                                                 (change)="selectOption(this.selectedValue)">
+                                                            <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="categorysub">Sub Category</label>
+                                                        <select  name="categorysub"
+                                                                 id="categorysub"
+                                                                 class="form-control"
+                                                                 [(ngModel)]="selectedValue2"
+                                                                 #categorysub="ngModel"
+                                                                 (change)="selectOption2(this.selectedValue2)">
+                                                            <option *ngFor="let s of subcategories" [value]="s.id">{{s.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="country">Country</label>
+                                                        <select  name="country"
+                                                                 id="country"
+                                                                 class="form-control"
+                                                                 [(ngModel)]="selectedValueCountry"
+                                                                 #country="ngModel"
+                                                                 (change)="selectOptionCountry(this.selectedValueCountry)">
+                                                            <option *ngFor="let country of countries" [value]="country.id">{{country.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="city">City</label>
+                                                        <select  name="city"
+                                                                 id="city"
+                                                                 class="form-control"
+                                                                 [(ngModel)]="selectedValueCity"
+                                                                 #city="ngModel"
+                                                                 (change)="selectOptionCity(this.selectedValueCity)">
+                                                            <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="showStartFrom">Start time to show</label>
+                                                        <input  type="text"
+                                                                class="form-control"
+                                                                name="showStartFrom"
+                                                                id="showStartFrom"
+                                                                placeholder="Example: (12:00)"
+                                                                [(ngModel)]="form.showStartFrom"
+                                                                #showStartFrom="ngModel">
+<!--                                                                required=true-->
+
+                                                        <div *ngIf="f.submitted && showStartFrom.invalid">
+<!--                                                            <div *ngIf="showStartFrom.errors?.['required']"-->
+<!--                                                                 class="alert alert-danger">-->
+<!--                                                                Start From is required-->
+<!--                                                            </div>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="showStartTo">End time to show</label>
+                                                        <input  type="text"
+                                                                class="form-control"
+                                                                name="showStartTo"
+                                                                id="showStartTo"
+                                                                placeholder="Example :(19:00)"
+                                                                [(ngModel)]="form.showStartTo"
+                                                                #showStartTo="ngModel">
+<!--                                                                required=true-->
+
+                                                        <div *ngIf="f.submitted && showStartTo.invalid">
+<!--                                                            <div *ngIf="showStartTo.errors?.['required']"-->
+<!--                                                                 class="alert alert-danger">-->
+<!--                                                                Show End To is required-->
+<!--                                                            </div>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="duration">Duration in seconds</label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               name="duration"
+                                                               id="duration"
+                                                               placeholder="Duration"
+                                                               [(ngModel)]="form.duration"
+                                                               #duration="ngModel">
+<!--                                                               required=true-->
+
+                                                        <div *ngIf="f.submitted && duration.invalid">
+<!--                                                            <div *ngIf="duration.errors?.['required']" class="alert alert-danger">Duration is required</div>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="dailyLimit">Daily Limit</label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               name="dailyLimit"
+                                                               id="dailyLimit"
+                                                               placeholder="Daily Limit"
+                                                               [(ngModel)]="form.dailyLimit"
+                                                               #dailyLimit="ngModel">
+<!--                                                               required=true/>-->
+                                                        <div *ngIf="f.submitted && dailyLimit.invalid">
+<!--                                                            <div *ngIf="dailyLimit.errors?.['required']" class="alert alert-danger">Daily limit is required</div>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="weeklyLimit">Weekly limit</label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               name="weeklyLimit"
+                                                               id="weeklyLimit"
+                                                               placeholder="Weekly Limit"
+                                                               [(ngModel)]="form.weeklyLimit"
+                                                               #weeklyLimit="ngModel"
+                                                               required=true/>
+                                                        <div *ngIf="f.submitted && weeklyLimit.invalid">
+                                                            <div *ngIf="weeklyLimit.errors?.['required']" class="alert alert-danger">Weekly limit is required</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="monthlyLimit">Monthly limit</label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               name="monthlyLimit"
+                                                               id="monthlyLimit"
+                                                               [(ngModel)]="form.monthlyLimit"
+                                                               #monthlyLimit="ngModel">
+<!--                                                               required=true/>-->
+                                                        <div *ngIf="f.submitted && monthlyLimit.invalid">
+<!--                                                            <div *ngIf="monthlyLimit.errors?.['required']" class="alert alert-danger">Monthly limit is required</div>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="moneyAmount">Money Amount (USD)</label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               name="moneyAmount"
+                                                               id="moneyAmount"
+                                                               [(ngModel)]="form.moneyAmount"
+                                                               #moneyAmount="ngModel">
+<!--                                                               required=true/>-->
+                                                        <div *ngIf="f.submitted && moneyAmount.invalid">
+<!--                                                            <div *ngIf="moneyAmount.errors?.['required']" class="alert alert-danger">Money Amount is required</div>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="files">Choose File</label><br />
+                                                        <input type="file"  id="files" name="files" multiple="multiple" (change)="uploadFiles({event : $event})" #fileUpload>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <button type="button" (click)="RequestUpload()" rippleEffect class="btn btn-primary mr-1">Add</button>
+<!--                                                    <button type="submit" rippleEffect class="btn btn-primary mr-1">Submit</button>-->
+                                                    <button type="reset" rippleEffect class="btn btn-outline-secondary">Reset</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Basic multiple Column Form section end -->
+
+
+                </div>
+            </div>
+        </div>
+        <!--/ Table Hover Animation -->
+    </div>
+</div>

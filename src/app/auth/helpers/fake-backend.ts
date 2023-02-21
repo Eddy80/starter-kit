@@ -29,7 +29,9 @@ const users: User[] = [
     firstName: 'Rasim',
     lastName: 'Masimov',
     avatar: 'avatar-s-11.jpg',
-    role: Role.Admin
+    role: Role.Admin,
+    status:'',
+    created: ''
   },
   {
     id: 2,
@@ -38,7 +40,9 @@ const users: User[] = [
     firstName: 'Elshad',
     lastName: 'Azizov',
     avatar: 'avatar-s-2.jpg',
-    role: Role.Client
+    role: Role.Client,
+    status:'',
+    created: ''
   },
   {
     id: 3,
@@ -47,7 +51,9 @@ const users: User[] = [
     firstName: 'Qadir',
     lastName: 'Aziz',
     avatar: 'avatar-s-3.jpg',
-    role: Role.User
+    role: Role.User,
+    status:'',
+    created: ''
   }
 ];
 

@@ -13,6 +13,15 @@ import { EarningComponent } from './earning/earning.component';
 import { ProfileComponent } from './profile/profile.component';
 import {StatisticsComponent} from "./statistics/statistics.component";
 import { QuestionComponent } from './question/question.component';
+import {AuthGuard} from "../../auth/helpers";
+import {Role} from "../../auth/models";
+import {NgxPaginationModule} from "ngx-pagination";
+import { NewAdvFormComponent } from './advertisement/new-adv-form/new-adv-form.component';
+import {NgSelectModule} from "@ng-select/ng-select";
+import {Ng2FlatpickrModule} from "ng2-flatpickr";
+import {CardSnippetModule} from "../../../@core/components/card-snippet/card-snippet.module";
+import {EditAdvFormComponent} from "./advertisement/edit-adv-form/edit-adv-form.component";
+
 
 const routes = [
   {
@@ -23,7 +32,29 @@ const routes = [
   {
     path: 'advertisement',
     component: AdvertisementComponent,
-    data: { animation: 'advertisement' }
+    canActivate: [AuthGuard],
+    data: [
+           { roles: [Role.Client] } // To set multiple role: [Role.Admin, Role.Client]
+          ,{ animation: 'advertisement' }
+          ]
+  },
+  {
+    path: 'advertisement/new',
+    component: NewAdvFormComponent,
+    canActivate: [AuthGuard],
+    data: [
+       { roles: [Role.Client] } // To set multiple role: [Role.Admin, Role.Client]
+      ,{ animation: 'advertisement/new' }
+    ]
+  },
+  {
+    path: 'advertisement/edit/:id',
+    component: EditAdvFormComponent,
+    canActivate: [AuthGuard],
+    data: [
+      { roles: [Role.Client] } // To set multiple role: [Role.Admin, Role.Client]
+      ,{ animation: 'advertisement/edit' }
+    ]
   },
   {
     path: 'user',
@@ -67,8 +98,30 @@ const routes = [
 ];
 
 @NgModule({
-  declarations: [HomeComponent, UserComponent, AdvertisementComponent, EarningComponent, ProfileComponent, StatisticsComponent, QuestionComponent],
-  imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule, CoreCommonModule],
-  exports: [HomeComponent, UserComponent, AdvertisementComponent, EarningComponent, ProfileComponent, StatisticsComponent, QuestionComponent]
+  declarations: [HomeComponent,
+    UserComponent,
+    AdvertisementComponent,
+    EarningComponent,
+    ProfileComponent,
+    StatisticsComponent,
+    QuestionComponent,
+    NewAdvFormComponent,
+    EditAdvFormComponent,
+  ],
+  imports: [RouterModule.forChild(routes),
+    ContentHeaderModule,
+    TranslateModule,
+    CoreCommonModule,
+    NgxPaginationModule,
+    NgSelectModule,
+    Ng2FlatpickrModule,
+    CardSnippetModule],
+  exports: [HomeComponent,
+    UserComponent,
+    AdvertisementComponent,
+    EarningComponent,
+    ProfileComponent,
+    StatisticsComponent,
+    QuestionComponent]
 })
 export class SampleModule {}

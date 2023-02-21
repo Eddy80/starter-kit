@@ -20,6 +20,14 @@ import { LayoutModule } from 'app/layout/layout.module';
 import { SampleModule } from 'app/main/sample/sample.module';
 
 
+// Importing the pagination module for the application.
+import { NgxPaginationModule } from 'ngx-pagination';
+import {FormsModule} from "@angular/forms";
+import {Ng2FlatpickrModule} from "ng2-flatpickr";
+import { EditAdvFormComponent } from './main/sample/advertisement/edit-adv-form/edit-adv-form.component';
+import {ContentHeaderModule} from "./layout/components/content-header/content-header.module";
+
+
 const appRoutes: Routes = [
   {
     path: 'pages',
@@ -38,30 +46,34 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    RouterModule.forRoot(appRoutes, {
-      scrollPositionRestoration: 'enabled', // Add options right here
-      relativeLinkResolution: 'legacy'
-    }),
-    TranslateModule.forRoot(),
+    imports: [
+        BrowserModule,
+        FormsModule,
+        NgxPaginationModule,
+        Ng2FlatpickrModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        RouterModule.forRoot(appRoutes, {
+            scrollPositionRestoration: 'enabled', // Add options right here
+            relativeLinkResolution: 'legacy'
+        }),
+        TranslateModule.forRoot(),
 
-    //NgBootstrap
-    NgbModule,
-    ToastrModule.forRoot(),
+        //NgBootstrap
+        NgbModule,
+        ToastrModule.forRoot(),
 
-    // Core modules
-    CoreModule.forRoot(coreConfig),
-    CoreCommonModule,
-    CoreSidebarModule,
-    CoreThemeCustomizerModule,
+        // Core modules
+        CoreModule.forRoot(coreConfig),
+        CoreCommonModule,
+        CoreSidebarModule,
+        CoreThemeCustomizerModule,
 
-    // App modules
-    LayoutModule,
-    SampleModule
-  ],
+        // App modules
+        LayoutModule,
+        SampleModule,
+        ContentHeaderModule
+    ],
 
   bootstrap: [AppComponent]
 })

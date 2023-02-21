@@ -1,17 +1,17 @@
 <!-- card snippet component -->
 <div class="card">
-  <div class="card-header">
-    <ng-content select=".card-title"></ng-content>
+<!--  <div class="card-header">-->
+<!--&lt;!&ndash;    <ng-content select=".card-title"></ng-content>&ndash;&gt;-->
 
-    <i
-      class="code-icon"
-      (click)="snippetCode.isCollapsed = !snippetCode.isCollapsed"
-      [attr.aria-expanded]="!snippetCode.isCollapsed"
-    ></i>
-  </div>
+<!--&lt;!&ndash;    <i&ndash;&gt;-->
+<!--&lt;!&ndash;      class="code-icon"&ndash;&gt;-->
+<!--&lt;!&ndash;      (click)="snippetCode.isCollapsed = !snippetCode.isCollapsed"&ndash;&gt;-->
+<!--&lt;!&ndash;      [attr.aria-expanded]="!snippetCode.isCollapsed"&ndash;&gt;-->
+<!--&lt;!&ndash;    ></i>&ndash;&gt;-->
+<!--  </div>-->
 
   <!--? content wrapped with .card-body -->
-  <ng-content select=".card-body"></ng-content>
+<!--  <ng-content select=".card-body"></ng-content>-->
 
   <!--? content without any wrapper -->
   <ng-content></ng-content>
@@ -78,7 +78,7 @@
       <!--/ nav tabs -->
 
       <!-- nav tabs outlet -->
-      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+<!--      <div [ngbNavOutlet]="nav" class="mt-2"></div>-->
       <!--/ nav tabs outlet -->
     </div>
   </div>

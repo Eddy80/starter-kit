@@ -10,9 +10,9 @@ export const menu: CoreMenu[] = [
     url: 'home'
   },
   {
-    id: 'administrator',
-    title: 'Administrator',
-    translate: 'MENU.ADMINISTRATOR',
+    id: 'menu',
+    title: 'Menu',
+    translate: 'MENU.MENU',
     type: 'section',
     icon: 'tool',
     children: [
@@ -22,7 +22,8 @@ export const menu: CoreMenu[] = [
         translate: 'MENU.ADVERTISEMENT',
         type: 'item',
         icon: 'layers',
-        url: 'advertisement'
+        url: 'advertisement',
+        role: ['Admin','Client'] // To set multiple role: ['Admin', 'Client']
         // badge: {
         //   title: '2',
         //   translate: 'MENU.ADVERTISEMENT.BADGE',
@@ -121,6 +122,55 @@ export const menu: CoreMenu[] = [
         type: 'item',
         icon: 'book',
         url: 'question'
+      },
+      {
+        id: 'dictionaries',
+        title: 'Dictionaries',
+        translate: 'MENU.DICTIONARIES.DICTIONARIES',
+        type: 'collapsible',
+        icon: 'codepen',
+        children: [
+          {
+            id: 'countries',
+            title: 'Countries',
+            translate: 'MENU.DICTIONARIES.COUNTRIES',
+            type: 'item',
+            icon: 'user-check',
+            url: 'dictionaries/countries'
+          },
+          {
+            id: 'cities',
+            title: 'Cities',
+            translate: 'MENU.DICTIONARIES.CITIES',
+            type: 'item',
+            icon: 'user-check',
+            url: 'dictionaries/cities'
+          },
+          {
+            id: 'genders',
+            title: 'Genders',
+            translate: 'MENU.DICTIONARIES.GENDERS',
+            type: 'item',
+            icon: 'user-check',
+            url: 'dictionaries/genders'
+          },
+          {
+            id: 'categories',
+            title: 'Categories',
+            translate: 'MENU.DICTIONARIES.CATEGORIES',
+            type: 'item',
+            icon: 'user-check',
+            url: 'dictionaries/categories'
+          },
+          {
+            id: 'subcategories',
+            title: 'Subcategories',
+            translate: 'MENU.DICTIONARIES.SUBCATEGORIES',
+            type: 'item',
+            icon: 'user-check',
+            url: 'dictionaries/subcategories'
+          },
+        ]
       },
     ]
   }

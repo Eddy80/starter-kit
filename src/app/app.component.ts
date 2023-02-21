@@ -47,6 +47,9 @@ export class AppComponent implements OnInit, OnDestroy {
    * @param {CoreTranslationService} _coreTranslationService
    * @param {TranslateService} _translateService
    */
+
+
+
   constructor(
     @Inject(DOCUMENT) private document: any,
     private _title: Title,
@@ -79,6 +82,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
     // Set the private defaults
     this._unsubscribeAll = new Subject();
+
+
+
+
+
   }
 
   // Lifecycle hooks
@@ -259,4 +267,11 @@ export class AppComponent implements OnInit, OnDestroy {
   toggleSidebar(key): void {
     this._coreSidebarService.getSidebarRegistry(key).toggleOpen();
   }
+
+
+
+
+
+
+
 }
